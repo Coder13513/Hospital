@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django_crontab',
     'record',
     'history',
+    'inventory',
 ]
 
 MIDDLEWARE = [
