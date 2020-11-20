@@ -28,7 +28,7 @@ def post_save_search(sender,instance,created,*args, **kwargs):
     s=Doctor.objects.all()
     box=s.filter(specialization=a)
     print(box)
-    i = box.values_list('name')
+    i = box.values_list('name',flat=True)
     t = box.values_list('hospital_name')
     # j=  box.values_list('User.first_name')
     # print(j)

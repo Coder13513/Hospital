@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'record',
     'history',
     'inventory',
+    'discharge',
 ]
 
 MIDDLEWARE = [

@@ -34,6 +34,9 @@ class Record(models.Model):
 
 def post_save_record(sender,instance,created,*args, **kwargs): 
 
+    # test        =           instance.record_set.all()
+    # print(test)
+
     medicine_name           =     instance.medicines
     print(medicine_name)
 
@@ -53,6 +56,7 @@ def post_save_record(sender,instance,created,*args, **kwargs):
    
   
     c=test-record_count
+    # c=result_list-record_count
     print(c)
     
     stock.objects.filter(name=medicine_name).update(scount=c)
