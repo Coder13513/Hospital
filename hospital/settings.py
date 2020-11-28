@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+
+import datetime
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -50,6 +54,7 @@ INSTALLED_APPS = [
     'inventory',
     'discharge',
     'attendance',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +143,16 @@ STATIC_URL = '/static/'
 
 # # export DJANGO_SETTINGS_MODULE=hospital.settings
 # django-admin runserver
+
+
+REST_FRAMEWORK = {
+'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny'
+        ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'authentication.backends.JWTAuthentication',
+        )
+}
+
+AUTH_USER_MODEL='authentication.User'

@@ -29,7 +29,7 @@ def post_save_search(sender,instance,created,*args, **kwargs):
     box=s.filter(specialization=a)
     print(box)
     i = box.values_list('name',flat=True)
-    t = box.values_list('hospital_name')
+    t = box.values_list('hospital_name',flat=True)
     # j=  box.values_list('User.first_name')
     # print(j)
     print(i)

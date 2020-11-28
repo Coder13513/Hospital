@@ -18,8 +18,13 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('auth/',include("authentication.urls")),
     path('search/', include("search.urls")),
     path('appointment/',include("booking.urls")),
     path('record/',include("record.urls")), 
     path('history/',include("history.urls")),
+    path('doctor/',include("doctor.urls")),
+    path('patient/',include("patient.urls")),
+    path('staff/',include("staff.urls")),
+    
 ]
