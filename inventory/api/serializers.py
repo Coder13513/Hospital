@@ -4,6 +4,6 @@ from inventory.models import *
 
 class InventorySerializer(serializers.ModelSerializer):
     class Meta:
-        model       =      Inventory
+        model       =      stock
         fields      =       '__all__'
        

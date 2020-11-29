@@ -8,8 +8,8 @@ from django.utils import timezone
 choices=[('Confirmed','confirmed'),('Pending','pending')]
 
 class Appointment(models.Model):
-    patientId         =               models.OneToOneField(User,on_delete=models.CASCADE,related_name='patientID')
-    doctorId          =               models.OneToOneField(User,on_delete=models.CASCADE,related_name='doctorID')
+    patientId         =               models.ForeignKey(User,on_delete=models.CASCADE,related_name='patientID')
+    doctorId          =               models.ForeignKey(User,on_delete=models.CASCADE,related_name='doctorID')
     patientName       =               models.CharField(max_length=40)
     doctorName        =               models.CharField(max_length=40)
     appointmentDate   =               models.DateTimeField(auto_now=False)

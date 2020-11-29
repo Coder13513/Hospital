@@ -7,3 +7,4 @@ class StaffSerializer(serializers.ModelSerializer):
         model       =       Staff
         fields      =       '__all__'
        
+

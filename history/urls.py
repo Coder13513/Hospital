@@ -1,8 +1,9 @@
 from django.urls import path
 
-from history import views
+from history.api import views
 
 urlpatterns = [  
    
-    path('', views.List.as_view()),
+    path('', views.HistoryList.as_view()),
+    path('<int:pk>/', views.HistoryDetail.as_view()),
 ]

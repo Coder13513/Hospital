@@ -1,15 +1,18 @@
-
-from django.shortcuts import render
-
-# Create your views here.
 from django.shortcuts import render
 from rest_framework import  generics
-from .models import *
-from .serializer import HistorySerializer
+from history.models import *
+from .serializers import HistorySerializer
+from rest_framework.permissions import (AllowAny,IsAdminUser,IsAuthenticated,)
 
 # Create your views here.
 
-class List(generics.ListCreateAPIView):
-    # permission_classes = [IsAdmin|IsSuper]
+class HistoryList(generics.ListCreateAPIView):
+    permission_classes = [IsAdminUser]
     queryset = History.objects.all()
-    serializer_class = HistorySerializer
+    serializer_class = HistorySerializer 
+
+
+class  HistoryDetail(generics.RetrieveUpdateAPIView):
+    permission_classes = [IsAdminUser]
+    queryset =  History.objects.all()
+    serializer_class =  HistorySerializer

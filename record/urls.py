@@ -1,9 +1,8 @@
 from django.urls import path
+from record.api import views
 
-from record import views
-
-urlpatterns = [
+urlpatterns = [  
    
-   
-    path('', views.List.as_view()),
+    path('', views.RecordList.as_view()), 
+    path('<int:pk>/', views.RecordDetail.as_view()),
 ]

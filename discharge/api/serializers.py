@@ -4,6 +4,6 @@ from discharge.models import *
 
 class DischargeSerializer(serializers.ModelSerializer):
     class Meta:
-        model       =      Discharge
+        model       =      PatientDischargeDetails
         fields      =       '__all__'
        

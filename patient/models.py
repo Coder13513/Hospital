@@ -4,7 +4,7 @@ from authentication.models import User
 
 # Create your models here.
 class Patient(models.Model):
-    user                    =           models.OneToOneField(User,on_delete=models.CASCADE)    
+    user                    =           models.OneToOneField(User,on_delete=models.CASCADE)  
     address                 =           models.CharField(max_length=40)
     mobile                  =           models.CharField(max_length=20,null=False)
     symptoms                =           models.CharField(max_length=100,null=False)

@@ -27,12 +27,12 @@ def post_save_history(sender,instance,created,*args, **kwargs):
     objects=Record.objects.filter(patientId=patient_id)
     print(objects)
 
-    dr_id=objects.values_list('doctorId') 
+    dr_id=objects.values_list('doctorId',flat=True) 
     print(dr_id)
     
-    hospital_name=objects.values_list('hospitalName')
-    treatment=objects.values_list('treatment')
-    date=objects.values_list('date')
+    hospital_name=objects.values_list('hospitalName',flat=True)
+    treatment=objects.values_list('treatment',flat=True)
+    date=objects.values_list('date',flat=True)
 
     if not instance.doctorId:
         list1 =[]
