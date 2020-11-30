@@ -37,15 +37,10 @@ def post_save_appointment(sender,instance,created,*args, **kwargs):
     foos = Appointment.objects.all()
    
     for foo in foos: 
-        appdate=foo.appointmentDate.date()
-        print(appdate)
-        if appdate==today:
-            print("yes")
-            print(foo.patientId.email)
-            subject = 'Schedule reminder'
-            body = 'Hey, please complete your schedule ' + foo.patientName
-            # send_mail(subject, body, 'amanpreet1052@gmail.com',
-            #           [foo.patientId.email])
+        # send_mail(
+        #                  'reminder',    'visit for your appointment.','amanpreet1052@gmail.com',
+        #                    ['amanpreet.leanvia@outlook.com'],)
+       
         if foo.appointmentDate < timezone.now():
             print('deleted')
             foo.delete() 

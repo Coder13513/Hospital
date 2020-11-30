@@ -1,4 +1,5 @@
 from django.core.mail import send_mail
+from django.conf import settings 
 from django.utils import timezone
 import datetime
 from django.core.management.base import BaseCommand, CommandError
@@ -47,9 +48,12 @@ class MyCronJob(CronJobBase):
                 # print(index)
                 email=emailIds[index]
                 print(email)
-                subject = 'Schedule reminder'
-                body = 'Hey, please complete your schedule ' + schedule.patientName
-                send_mail(subject, body, 'amanpreet1052@gmail.com',[email])
+                send_mail(
+                         'reminder',    'visit for your appointment.','amanpreet1052@gmail.com',
+                           ['amanpreet.leanvia@outlook.com'],)
+                # subject = 'Schedule reminder'
+                # body = 'Hey, please complete your schedule ' + schedule.patientName
+                # send_mail(subject, body, 'amanpreet1052@gmail.com',[email])
                 print("mail sent")
 
 
