@@ -2,6 +2,9 @@ from django.db import models
 from authentication.models import User 
 from django.db.models.signals import post_save
 from django.utils import timezone
+from datetime import date
+import datetime
+from django.core.mail import send_mail
 
 # Create your models here.
 
@@ -24,11 +27,29 @@ class Appointment(models.Model):
 
 def post_save_appointment(sender,instance,created,*args, **kwargs):
 
-    print("print from postsave function")
+
+    print("print from postsave function")   
+   
+    today = datetime.datetime.now().date()
+    print("shows today date",today)
+    # print(timezone.now()+ timezone.timedelta(days=1))
+
     foos = Appointment.objects.all()
+   
     for foo in foos: 
+        appdate=foo.appointmentDate.date()
+        print(appdate)
+        if appdate==today:
+            print("yes")
+            print(foo.patientId.email)
+            subject = 'Schedule reminder'
+            body = 'Hey, please complete your schedule ' + foo.patientName
+            # send_mail(subject, body, 'amanpreet1052@gmail.com',
+            #           [foo.patientId.email])
         if foo.appointmentDate < timezone.now():
+            print('deleted')
             foo.delete() 
-            print(timezone.now())  
+            
+             
 
 post_save.connect(post_save_appointment, sender=Appointment)

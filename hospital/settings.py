@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'discharge',
     'attendance',
     'rest_framework',
+    'django_cron',
 ]
 
 MIDDLEWARE = [
@@ -156,3 +157,16 @@ REST_FRAMEWORK = {
 }
 
 AUTH_USER_MODEL='authentication.User'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'amanpreet1052@gmailcom'
+EMAIL_HOST_PASSWORD = 'Amanpreetsg13513'
+
+CRON_CLASSES = [
+    "cron.MyCronJob",
+   
+]
